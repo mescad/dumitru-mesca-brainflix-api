@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const videos = require("../data/video-details.json");
+const { v4: uuidv4 } = require('uuid');
 
 
 // /videos
@@ -22,6 +23,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/upload", (req, res) => {
   const { title, description } = req.body;
+  console.log(req.body);
 
   const newVideo = {
     id: uuidv4(),
@@ -33,12 +35,13 @@ router.post("/upload", (req, res) => {
     duration: "6:31",
     channel: "Red Bull",
 
-    //
+    
   };
 
   videos.push(newVideo);
 
   res.json(newVideo);
+  console.log(newVideo);
 });
 
 module.exports = router;
