@@ -25,17 +25,21 @@ router.post("/upload", (req, res) => {
   const { title, description } = req.body;
   console.log(req.body);
 
+  const timestampInSeconds = Date.now();
+
   const newVideo = {
     id: uuidv4(),
     title,
     description,
-    image:'http://localhost:8080/images/shrek.jpg',
-    views: "0",
-    likes: "0",
+    image:'http://localhost:8080/images/uploadvid.jpg',
+    views: '0',
+    likes: '0',
     duration: "6:31",
-    channel: "Red Bull",
-
-    
+    channel: "Green Orc",
+    timestamp: timestampInSeconds,
+    comments:[
+    ],
+  
   };
 
   videos.push(newVideo);
